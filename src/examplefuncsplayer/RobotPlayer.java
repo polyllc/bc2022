@@ -2,6 +2,7 @@ package examplefuncsplayer;
 
 import battlecode.common.*;
 import java.util.Random;
+import java.lang.System;
 
 /**
  * RobotPlayer is the class that describes your main robot strategy.
@@ -27,14 +28,14 @@ public strictfp class RobotPlayer {
 
     /** Array containing all the possible movement directions. */
     static final Direction[] directions = {
-        Direction.NORTH,
-        Direction.NORTHEAST,
-        Direction.EAST,
-        Direction.SOUTHEAST,
-        Direction.SOUTH,
-        Direction.SOUTHWEST,
-        Direction.WEST,
-        Direction.NORTHWEST,
+            Direction.NORTH,
+            Direction.NORTHEAST,
+            Direction.EAST,
+            Direction.SOUTHEAST,
+            Direction.SOUTH,
+            Direction.SOUTHWEST,
+            Direction.WEST,
+            Direction.NORTHWEST,
     };
 
     /**
