@@ -44,7 +44,6 @@ public strictfp class RobotPlayer {
 
 
         while (true) {
-            System.out.println("AHHHHHHHHHHHHHH");
             turnCount += 1;  // We have now been alive for one more turn!
             try {
                 switch (rc.getType()) {
