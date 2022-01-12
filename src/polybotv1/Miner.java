@@ -16,7 +16,7 @@ public class Miner {
     //0 for exclusive mining
     //1 for exploration
     //2 for going with the heard
-    int minerType = 1;
+    int minerType = 0;
 
     Map<MapLocation, Integer> leadCooldowns = new HashMap<MapLocation, Integer>();
 
@@ -28,9 +28,6 @@ public class Miner {
         archonCoords = Util.nullLocation;
         util = new Util(rc);
         startUp();
-        if(rc.getRoundNum() < 1200){
-            minerType = 0;
-        }
     }
 
     void startUp() throws GameActionException {
@@ -41,6 +38,7 @@ public class Miner {
                 break;
             }
         }
+
     }
 
 
@@ -66,6 +64,13 @@ public class Miner {
     private void miningMiner() throws GameActionException {
 
         RobotInfo[] robots = rc.senseNearbyRobots();
+
+        for(Direction dir : nav.directions){
+            if(rc.getLocation().add(dir) == archonCoords){
+                nav.tryMove(dir.opposite());
+            }
+        }
+
 
         for(RobotInfo robot : robots){
             if(robot.getType() == RobotType.ARCHON){

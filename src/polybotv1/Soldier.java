@@ -65,6 +65,16 @@ public class Soldier {
         }
 
         if(enemyArchon.distanceSquaredTo(rc.getLocation()) <= rc.getType().actionRadiusSquared){ //we can shoot the archon
+            for(RobotInfo robot : robots){
+                if(robot.getTeam() != rc.getTeam()){
+                    if(robot.getType() == RobotType.SOLDIER){
+                        if(rc.canAttack(robot.getLocation())) {
+                            rc.attack(robot.getLocation());
+                            break;
+                        }
+                    }
+                }
+            }
             if(rc.canAttack(enemyArchon)){
                 rc.attack(enemyArchon);
             }
